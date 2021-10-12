@@ -1,0 +1,55 @@
+
+
+body{
+    margin: 0;
+    height: 100%;
+}
+.header{
+    padding: 15px 0;
+    background-color:#ffffff;
+
+}
+.header-content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 0px solid green;
+    justify-content: center;
+
+}
+.logo-content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 0px solid green;
+    width: 80%;
+    cursor: pointer; 
+
+}
+
+.logo-content-img{
+    border: solid 1px black;
+
+}
+
+.emp-text{
+ font: normal normal bold 15px/20px TimesRoman;
+ letter-spacing: 0px;
+ color: #82a70c;
+
+}
+
+.emp-payroll{
+color: black;
+}
+
+*{
+box-sizing:border-box;
+
+}
+
+.text-div{
+    display:flex;
+    flex-direction:column;
+    padding: 5px;
+}
