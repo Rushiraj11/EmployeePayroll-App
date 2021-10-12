@@ -96,6 +96,11 @@ opacity: 1;
     min-width: 100px;
 }
 
+label{
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
 .text{
     font-size:16px;
     color:#42515f;
@@ -113,10 +118,10 @@ opacity: 1;
 .profile-radio-content{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    
 }
 
-.profile-radio-content > label{
+.profile-radio-content > label {
     display: flex;
     flex-direction: row;
     align-items: center;
