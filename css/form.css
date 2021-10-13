@@ -171,5 +171,57 @@
         .resetButton {
             margin-right: 10px;
         }
+        @media only screen and (max-width:600px) {
+          .form {
+              margin-top: 10px;
+          }
+          .submit-reset {
+              width: 100%;
+              display: flex;
+              flex-grow: 1;
+              flex-direction: row-reverse;
+              justify-content: space-between;
+          }
+          .cancelButton {
+              margin-left: 0px;
+          }
+          .form {
+              width: 85%;
+              padding: 44ox 20px;
+          }
+          .profile-lable {
+              margin-left: 0px;
+          }
+      }
+      
+      @media only screen and (max-width: 960px) {
+          .cancelButton {
+              margin-left: 0px;
+          }
+          .form {
+              width: 85%;
+              padding: 44px 20px;
+          }
+      }
+      
+      a.button:hover {
+          background: grey;
+          color: white;
+      }
+      
+      .submitButton:hover {
+          background-color: #82A70C;
+          color: white;
+      }
+      
+      .resetButton:hover {
+          background: grey;
+          color: white;
+      }
+      
+      .department {
+          margin-left: 30px;
+      }
+
         
        
