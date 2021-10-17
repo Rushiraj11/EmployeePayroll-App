@@ -59,3 +59,62 @@ function checkStartDate(startDate) {
       throw "Start date is beyond 30 days";
   }
 }
+
+function save(event) {
+  alert("save")
+
+  event.preventDefault();
+  event.stopPropagation();
+
+  try {
+      let employeePayrollDate = createEmployeePayroll();
+  } catch (e) {
+      return;
+  }
+
+}
+
+function createEmployeePayroll() {
+  let employeePayrollData = new EmployeePayrollData();
+  try {
+    employeePayrollData.name = getInputValueByID('#name');
+    employeePayrollData.salary = getInputValueByID('#salary');
+    employeePayrollData.notes = getInputValueByID('#notes');
+    employeePayrollData.profilePic = getSelectedValues('[name=profile]').pop(); //profile -pic is in arrary so using pop 
+    employeePayrollData.gender = getSelectedValues('[name=gender]').pop();
+    employeePayrollData.department = getSelectedValues('[name=department]');//not using pop as multiple choice can be selected
+} catch (e) {
+    setTextValue('.text-error', e);
+}
+try {
+    let date = getInputValueByID('#day') + " " + getInputValueByID('#month') + " " + getInputValueByID('#year')
+    employeePayrollData.startDate = new Date(Date.parse(date));
+} catch (e) {
+    setTextValue('.date-error', e);
+}
+
+
+alert(employeePayrollData.toString());
+return employeePayrollData;
+}
+
+function getInputValueByID(id) {
+let value = document.querySelector(id).value;
+return value;
+}
+
+function setTextValue(className, value) {
+let textError = document.querySelector(className);
+textError.textContent = value;
+}
+
+function getSelectedValues(propertyValue) {
+let allItems = document.querySelectorAll(propertyValue);
+let setItems = [];
+allItems.forEach(item => {
+    if (item.checked) {
+        setItems.push(item.value);
+    }
+});
+return setItems;
+}
