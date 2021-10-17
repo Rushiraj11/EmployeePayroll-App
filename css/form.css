@@ -171,6 +171,13 @@
         .resetButton {
             margin-right: 10px;
         }
+
+        error-output {
+            font-size: 15px;
+            font-style: Bold;
+            color: brown;
+        }
+        
         @media only screen and (max-width:600px) {
           .form {
               margin-top: 10px;
