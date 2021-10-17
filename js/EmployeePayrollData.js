@@ -78,18 +78,3 @@ class EmployeePayrollData {
         return "Name = " + this.name + ", Profile Image = " + this.profileImage + ", Gender = " + this.gender + ", Department = " + this.department + ", Salary = " + this.salary + ", Start Date = " + employeeDate + ", Notes = " + this.notes;
     }
 }
-
-function save() {
-
-    let employeeName = document.querySelector('#name').value;
-    let profileList = document.querySelectorAll('input[name="profile"]');
-    let employeeProfileImage;
-    for (let image of profileList) {
-        if (image.checked) {
-            employeeProfileImage = image.value;
-            break;
-        }
-    }
-
-
-}
