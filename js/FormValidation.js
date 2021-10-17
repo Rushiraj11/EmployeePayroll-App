@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
   salaryOutput();
   validateName();
   validateDate();
- // createAndUpdateStorage();
+ 
 });
 
 
@@ -130,4 +130,32 @@ function createAndUpdateStorage(employeePayrollData) {
   }
   localStorage.setItem("EmployeePayrollList",JSON.stringify(employeePayrollList));
 
+}
+function resetButton() {
+  setValue('#name', '');
+  setValue('#salary',400000);
+  setValue('#notes', '');
+  setValue('#day', '');
+  setValue('#month', '');
+  setValue('#year', '');
+  setTextValue('.salary-output',400000);
+  setTextValue('.text-error', '');
+  setTextValue('.date-error', '');
+  unsetSelectedValues('[name=profile]');
+  unsetSelectedValues('[name=department]');
+  unsetSelectedValues('[name=gender]');
+  
+
+}
+
+function setValue(id, value) {
+  let element = document.querySelector(id);
+  element.value = value;
+}
+
+function unsetSelectedValues(propertyValue) {
+  let allItems = document.querySelectorAll(propertyValue);
+  allItems.forEach(item => {
+      item.selected = false;
+  });
 }
