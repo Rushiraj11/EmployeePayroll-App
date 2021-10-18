@@ -7,8 +7,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
 function salaryOutput() {
-const output = document.querySelector(".salary-output");
-const salary = document.querySelector("#salary");
+const output = document.querySelector('.salary-output');
+const salary = document.querySelector('#salary');
 salary.addEventListener("input", function () {
   output.textContent = salary.value;
 });
@@ -20,7 +20,7 @@ function validateName() {
   let name = document.querySelector('#name');
   let textError = document.querySelector('.text-error');
   name.addEventListener('input', function () {
-      let nameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
+      let nameRegex = RegExp('^[A-Z]{1}[a-z A-Z\\s]{2,}$');
       if (nameRegex.test(name.value)) {
           textError.textContent = "";
       } else {
@@ -71,6 +71,7 @@ function save(event) {
     let employeePayrollData = createEmployeePayroll();
     createAndUpdateStorage(employeePayrollData);
     alert("Data Stored With name" + employeePayrollData.name);
+    window.location.replace("../pages/EmployeePayrollHomePage.html")
 } catch (e) {
     return;
 }
@@ -126,11 +127,12 @@ function createAndUpdateStorage(employeePayrollData) {
   if (employeePayrollList != undefined) {
       employeePayrollList.push(employeePayrollData);
   } else {
-      employeePayrollList=[employeePayrollData];
+      employeePayrollList= [employeePayrollData];
   }
-  localStorage.setItem("EmployeePayrollList",JSON.stringify(employeePayrollList));
+  localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList));
 
 }
+
 function resetButton() {
   setValue('#name', '');
   setValue('#salary',400000);

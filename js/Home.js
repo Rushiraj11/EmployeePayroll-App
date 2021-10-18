@@ -1,15 +1,22 @@
+let empPayrollList;
 window.addEventListener('DOMContentLoaded', (event) => {
+   empPayrollList=getEmployeeDataFromStorage();
    createInnerHtml();
-   document.querySelector(".emp-count").textContent= createEmployeePayrollJSON().length;
+   document.querySelector(".emp-count").textContent= empPayrollList.length;
   });
+
+  const getEmployeeDataFromStorage = () => {
+      return localStorage.getItem("EmployeePayrollList") ?
+      JSON.parse(localStorage.getItem("EmployeePayrollList")) : [] ;
+  }
   
   let createInnerHtml = () => {
    
     let headerHTML="<tr> <th> </th><th>Name</th> <th>Gender</th><th>Department</th><th>Salary</th><th>Start Date</th><th>Actions</th></tr>";
     let innerHTML = `${headerHTML}`;
-    let employeePayrollList = createEmployeePayrollJSON();
+  // let employeePayrollList = createEmployeePayrollJSON();
  
-    for (const employeePayrollData of employeePayrollList) {
+    for (const employeePayrollData of empPayrollList) {
      innerHTML = `${innerHTML}
    
 <tr><td>
@@ -27,15 +34,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
         <img alt="delete" src="../asset/icons/delete-black-18dp.svg">
         <img alt="edit" src="../asset/icons/create-black-18dp.svg">
     </td>
-</tr>`;
+</tr> `;
     }
-     document.querySelector("#display").innerHTML = innerHTML;
+     document.querySelector('#display').innerHTML = innerHTML;
   }
 
-  const getDeptHtml =(deptList) =>{
+  const getDeptHtml = (deptList) => {
       let deptHtml= '';
-      for(const dept of deptList){
-          deptHtml=`${deptHtml} <div class='dept-label'>${dept}</div>`
+      for (const dept of deptList) {
+          deptHtml=`${deptHtml} <div class = 'dept-label'>${dept}</div>`
       }
      return deptHtml;
   }
