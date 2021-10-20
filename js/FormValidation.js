@@ -124,12 +124,23 @@ return setItems;
 }
 function createAndUpdateStorage(employeePayrollData) {
   let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
+   employeePayrollData.id = createNewEmpID();
+
   if (employeePayrollList != undefined) {
       employeePayrollList.push(employeePayrollData);
   } else {
       employeePayrollList= [employeePayrollData];
   }
   localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList));
+
+}
+
+const createNewEmpID = () => {
+   let empId = localStorage.getItem('EmpId');
+   empId = !empId ? 1 : (parseInt(empId) + 1).toString();
+   localStorage.setItem('EmpId', empId);
+   return empId;
+
 
 }
 
